@@ -1,0 +1,16 @@
+version: 0.0
+os: linux
+files:
+  - source: /index.html
+    destination: /var/www/html
+hooks:
+  BeforeInstall:
+    - location: scripts/clear_destination.sh
+      timeout: 300
+      runas: root
+    - location: scripts/install.sh
+      timeout: 300
+      runas: root
+    - location: scripts/start.sh
+      timeout: 300
+      runas: root
